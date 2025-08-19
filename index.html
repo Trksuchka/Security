@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тайная Вечеринка | Секретный пруд Кугульта</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-deep-blue: #0a0f23;
+            --color-night-blue: #121a33;
+            --color-water-blue: #152540;
+            --color-neon-purple: #8a2be2;
+            --color-neon-pink: #ff00ff;
+            --color-neon-cyan: #00ffff;
+            --color-gold: #ffd700;
+            --color-text-light: #e0f7fa;
+            --color-text-gray: #b0bec5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--color-deep-blue), var(--color-night-blue));
+            color: var(--color-text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: var(--color-neon-purple);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-neon-purple);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            box-shadow: 0 0 20px var(--color-neon-purple);
+            transform: translateY(-3px);
+        }
+        
+        .btn.pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(138, 43, 226, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0); }
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 42px;
+            display: inline-block;
+            background: linear-gradient(90deg, var(--color-neon-cyan), var(--color-neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--color-neon-cyan), var(--color-neon-pink));
+            margin: 15px auto;
+            border-radius: 3px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 0 20px;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            filter: brightness(0.4) blur(2px);
+            z-index: -2;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--color-deep-blue), transparent);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+            background: linear-gradient(90deg, #ff00ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(255, 0, 255, 0.7), 0 0 20px rgba(0, 255, 255, 0.7); }
+            to { text-shadow: 0 0 20px rgba(255, 0, 255, 0.9), 0 0 30px rgba(0, 255, 255, 0.9); }
+        }
+        
+        .hero p {
+            font-size: 1.8rem;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .countdown-item {
+            background: rgba(21, 37, 64, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 100px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+        }
+        
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--color-neon-cyan), var(--color-neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(138, 43, 226, 0.2), rgba(0, 255, 255, 0.2));
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .features {
+            list-style: none;
+            margin: 25px 0;
+        }
+        
+        .features li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 15px;
+            color: var(--color-neon-cyan);
+        }
+        
+        /* Program Section */
+        .program {
+            background: linear-gradient(135deg, rgba(10, 15, 35, 0.8), rgba(18, 26, 51, 0.9)), url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center center/cover;
+            background-attachment: fixed;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--color-neon-cyan), var(--color-neon-pink));
+            left: 50%;
+            margin-left: -2px;
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--color-neon-purple);
+            border: 4px solid var(--color-night-blue);
+            top: 30px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            background: rgba(21, 37, 64, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .timeline-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-neon-cyan);
+            margin-bottom: 10px;
+        }
+        
+        /* Tickets Section */
+        .tickets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .ticket-card {
+            background: rgba(21, 37, 64, 0.7);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .ticket-card.featured {
+            transform: scale(1.05);
+            border: 2px solid var(--color-neon-purple);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5);
+        }
+        
+        .ticket-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--color-neon-purple);
+            color: white;
+            padding: 5px 30px;
+            font-size: 12px;
+            font-weight: 600;
+            transform: rotate(45deg);
+        }
+        
+        .ticket-card.vip {
+            border: 2px solid var(--color-gold);
+        }
+        
+        .ticket-card.vip .ticket-price {
+            color: var(--color-gold);
+        }
+        
+        .ticket-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .ticket-name {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .ticket-price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            color: var(--color-neon-cyan);
+        }
+        
+        .ticket-price span {
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        
+        .ticket-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        
+        .ticket-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .ticket-remaining {
+            background: rgba(255, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .ticket-remaining .number {
+            font-weight: 700;
+            color: var(--color-neon-pink);
+            font-size: 1.2rem;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: rgba(21, 37, 64, 0.5);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: rgba(138, 43, 226, 0.1);
+        }
+        
+        .faq-question::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(10, 15, 35, 0.9), rgba(18, 26, 51, 0.9)), url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=2100&q=80') center center/cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        
+        .contact-card {
+            background: rgba(21, 37, 64, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-info {
+            margin: 30px 0;
+        }
+        
+        .contact-info div {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--color-neon-purple);
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--color-neon-purple);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--color-night-blue);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(0, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, var(--color-neon-cyan), var(--color-neon-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--color-text-gray);
+            margin-top: 10px;
+        }
+        
+        /* Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 255, 255, 0.5);
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+                text-align: left !important;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 20px !important;
+                right: auto !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero p {
+                font-size: 1.4rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .countdown {
+                gap: 10px;
+            }
+            
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="particles" id="particles"></div>
+        <div class="hero-content">
+            <h1>ТАЙНАЯ ВЕЧЕРИНКА</h1>
+            <p>Секретный пруд • ул. Малая, Кугульта • 25 августа 2025</p>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Дней</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Часов</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Минут</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Секунд</div>
+                </div>
+            </div>
+            
+            <a href="#tickets" class="btn pulse">
+                <i class="fas fa-ticket-alt"></i> Забронировать место
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>О МЕРОПРИЯТИИ</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>ТО, О ЧЕМ ГОВОРЯТ ШЕПОТОМ</h3>
+                    <p>Эксклюзивное мероприятие в уникальном месте, доступное только для избранных. Вечеринка на секретном пруду в Кугульта - это незабываемый опыт под открытым небом.</p>
+                    
+                    <ul class="features">
+                        <li>Скрытый пруд с кристально чистой водой</li>
+                        <li>Песчаный пляж и плавучие платформы для танцев</li>
+                        <li>Подвесные мосты и уединенные лаунж-зоны</li>
+                        <li>Точные координаты раскрываются после оплаты билета</li>
+                        <li>Охраняемая территория и парковка</li>
+                    </ul>
+                    
+                    <a href="#" class="btn">
+                        <i class="fas fa-map-marker-alt"></i> Посмотреть расположение
+                    </a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Секретный пруд">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="program">
+        <div class="container">
+            <div class="section-title">
+                <h2>ПРОГРАММА ВЕЧЕРА</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-time">19:00</div>
+                        <h3>Прибытие гостей</h3>
+                        <p>Встреча гостей, welcome-коктейль, знакомство с территорией</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-time">20:30</div>
+                        <h3>Закат у воды</h3>
+                        <p>Живая этно-электронная музыка, плавучий бар, легкие закуски</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-time">23:00</div>
+                        <h3>Главный сет</h3>
+                        <p>Secret headliner DJ (раскрывается в день вечеринки)</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-time">02:00</div>
+                        <h3>Кинетическое шоу</h3>
+                        <p>Фаер-шоу над водой, световые инсталляции, послепати</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets">
+        <div class="container">
+            <div class="section-title">
+                <h2>ВЫБЕРИТЕ СВОЙ БИЛЕТ</h2>
+            </div>
+            
+            <div class="tickets-grid">
+                <div class="ticket-card">
+                    <h3 class="ticket-name">STANDARD</h3>
+                    <div class="ticket-price">2 000 <span>₽</span></div>
+                    <ul class="ticket-features">
+                        <li>Доступ на 5 часов</li>
+                        <li>3 авторских коктейля</li>
+                        <li>Фруктовая тарелка</li>
+                        <li>Фирменный мерч</li>
+                        <li>Доступ ко всем зонам</li>
+                    </ul>
+                    <a href="#" class="btn">Забронировать</a>
+                </div>
+                
+                <div class="ticket-card featured">
+                    <h3 class="ticket-name">PREMIUM</h3>
+                    <div class="ticket-price">3 500 <span>₽</span></div>
+                    <ul class="ticket-features">
+                        <li>Безлимитный доступ</li>
+                        <li>Премиум бар без ограничений</li>
+                        <li>VIP лаунж зона</li>
+                        <li>Персональный хостес</li>
+                        <li>Эксклюзивный мерч</li>
+                    </ul>
+                    <a href="#" class="btn">Забронировать</a>
+                </div>
+                
+                <div class="ticket-card vip">
+                    <h3 class="ticket-name">VIP</h3>
+                    <div class="ticket-price">5 000 <span>₽</span></div>
+                    <ul class="ticket-features">
+                        <li>Весь вечер без ограничений</li>
+                        <li>Личный бармен и хостес</li>
+                        <li>Приватная зона у воды</li>
+                        <li>Экскурсия по тайным местам</li>
+                        <li>Подарочный набор</li>
+                    </ul>
+                    <a href="#" class="btn">Забронировать</a>
+                    <div class="ticket-remaining">Осталось билетов: <span class="number">3</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>ЧАСТЫЕ ВОПРОСЫ</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">Как получить точные координаты?</div>
+                    <div class="faq-answer">
+                        <p>Координаты и пароль для входа будут отправлены на ваш email и телефон за 24 часа до мероприятия. Доступ строго по предъявлению билета.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Какой дресс-код?</div>
+                    <div class="faq-answer">
+                        <p>Элегантный кэжуал с неоновыми акцентами. Приветствуются светящиеся элементы, удобная обувь для пляжа. Тематика - "Ночное сияние".</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Можно ли прийти с друзьями?</div>
+                    <div class="faq-answer">
+                        <p>Каждый гость должен иметь собственный билет. Вы можете приобрести несколько билетов, указав данные всех участников при оформлении.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Что с парковкой?</div>
+                    <div class="faq-answer">
+                        <p>Охраняемая парковка расположена в 800 метрах от места. Точное местоположение парковки будет указано в билете. Трансфер от парковки включен.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Что делать, если будет дождь?</div>
+                    <div class="faq-answer">
+                        <p>Мероприятие пройдет в любую погоду. На территории установлены навесы и шатры. В случае экстремальных условий мы перенесем вечеринку и уведомим всех участников.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>КОНТАКТЫ</h2>
+            </div>
+            
+            <div class="contact-card">
+                <h3>ВСЕ ВОПРОСЫ О ВЕЧЕРИНКЕ</h3>
+                <p>Мы готовы ответить на любые ваши вопросы</p>
+                
+                <div class="contact-info">
+                    <div>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Кугульта, ул. Малая (точное место в билете)</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (XXX) XXX-XX-XX</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-envelope"></i>
+                        <span>secretpond@event.ru</span>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-vk"></i></a>
+                </div>
+                
+                <p>Напишите нашему Telegram-боту для мгновенной связи:</p>
+                <a href="#" class="btn">
+                    <i class="fab fa-telegram"></i> @secretpond_bot
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Тайный Пруд</div>
+                <p>Эксклюзивные мероприятия в уникальных местах</p>
+                <div class="copyright">© 2025 Тайная Вечеринка у Пруда. Все права защищены.<br>Место проведения может быть изменено в случае погодных условий.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2025-08-25T20:00:00').getTime();
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Particles
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size
+                const size = Math.random() * 5 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random animation duration
+                const duration = Math.random() * 20 + 10;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random delay
+                const delay = Math.random() * 5;
+                particle.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentNode;
+                item.classList.toggle('active');
+            });
+        });
+        
+        // Timeline Animation
+        function checkTimeline() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                const position = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight * 0.8;
+                
+                if (position < screenPosition) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkTimeline);
+        window.addEventListener('load', checkTimeline);
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Initialize
+        window.onload = function() {
+            createParticles();
+        };
+    </script>
+</body>
+</html>
